@@ -3,7 +3,7 @@ using Patient_Management_System.Core.Entities;
 
 namespace Patient_Management_System.Core.Contexts;
 
-public  class PatientDbContext:DbContext, IPatientDbContext
+public  class PatientDbContext: DbContext, IPatientDbContext
 {
     private string _connectionString;
     private string _migrationAssemblyName;
@@ -18,7 +18,9 @@ public  class PatientDbContext:DbContext, IPatientDbContext
     {
         if (!dbContextOptionsBuilder.IsConfigured)
         {
-            dbContextOptionsBuilder.UseSqlServer(_connectionString, m => m.MigrationsAssembly(_migrationAssemblyName));
+            dbContextOptionsBuilder.UseSqlServer(
+                _connectionString,
+                m => m.MigrationsAssembly(_migrationAssemblyName));
         }
 
         base.OnConfiguring(dbContextOptionsBuilder);

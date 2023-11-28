@@ -3,13 +3,9 @@ using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 using System.Linq.Dynamic.Core;
 
-
 namespace Patient_Management_System.Data.Repositories;
 
-public abstract class Repository<TEntity, TKey, TContext>
-    : IRepository<TEntity, TKey, TContext>
-    where TEntity : class, IEntity<TKey>
-    where TContext : DbContext
+public abstract class Repository<TEntity, TKey, TContext> : IRepository<TEntity, TKey, TContext> where TEntity : class, IEntity<TKey> where TContext : DbContext
 {
     protected TContext _dbContext;
     protected DbSet<TEntity> _dbSet;

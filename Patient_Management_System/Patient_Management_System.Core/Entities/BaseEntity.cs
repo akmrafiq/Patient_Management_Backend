@@ -1,11 +1,13 @@
-﻿namespace Patient_Management_System.Core.Entities;
+﻿using Patient_Management_System.Data;
 
-public abstract class BaseEntity
+namespace Patient_Management_System.Core.Entities;
+
+public abstract class BaseEntity : IEntity<int>
 {
-    public Guid Id { get; set; }
-    public Guid CreatedBy { get; set; }
+    public int Id { get; set; }
+    public int CreatedBy { get; set; }
     public DateTime CreatedDate { get; set; }
-    public Guid? LastUpdatedBy { get; set; }
+    public int? LastUpdatedBy { get; set; }
     public DateTime? LastUpdatedDate { get; set; }
     public bool IsDeleted { get; set; }
 }

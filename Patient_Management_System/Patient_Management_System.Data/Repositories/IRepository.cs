@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Patient_Management_System.Data.Repositories;
 
-public interface IRepository<TEntity, TKey, TContext> where TEntity : class, IEntity<TKey> where TContext: DbContext
+public interface IRepository<TEntity, TKey, TContext> where TEntity : class, IEntity<TKey> where TContext : DbContext
 {
     Task AddAsync(TEntity entity);
     Task RemoveAsync(TKey id);
