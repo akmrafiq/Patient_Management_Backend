@@ -1,4 +1,4 @@
-namespace Patient_Management_System
+namespace Patient_Management_System.API
 {
     public class WeatherForecast
     {
