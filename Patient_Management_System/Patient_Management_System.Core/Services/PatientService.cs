@@ -14,6 +14,6 @@ public class PatientService: IPatientService
 
     public async Task<IList<Patient>> Get()
     {
-        return _repository.GetAll();
+        return await _repository.GetAllAsync();
     }
 }
