@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Patient_Management_System.Core.Entities;
+using Patient_Management_System.Core.Services;
 
 namespace Patient_Management_System.API.Controllers
 {
@@ -12,10 +14,12 @@ namespace Patient_Management_System.API.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IPatientService _petService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IPatientService petService)
         {
             _logger = logger;
+            _petService = petService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -29,5 +33,12 @@ namespace Patient_Management_System.API.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet(Name = "GetPatient")]
+        public async Task<IActionResult> GetPatient()
+        {
+            return Ok(await _petService.Get());
+        }
     }
+
 }

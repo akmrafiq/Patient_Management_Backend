@@ -1,8 +1,8 @@
 ﻿using Autofac;
-using Microsoft.Extensions.Configuration;
 using Patient_Management_System.Core.Contexts;
 using Patient_Management_System.Core.Repositories.DoctorRepo;
 using Patient_Management_System.Core.Repositories.PatientRepo;
+using Patient_Management_System.Core.Services;
 using Patient_Management_System.Core.UnitOfWork;
 
 namespace Patient_Management_System.Core;
@@ -36,6 +36,9 @@ public class CoreModule : Module
             .InstancePerLifetimeScope();
 
         builder.RegisterType<PatientRepository>().As<IPatientRepository>()
+            .InstancePerLifetimeScope();
+
+        builder.RegisterType<PatientService>().As<IPatientService>()
             .InstancePerLifetimeScope();
 
         builder.RegisterType<DoctorRepository>().As<IDoctorRepository>()

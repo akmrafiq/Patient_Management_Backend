@@ -18,9 +18,7 @@ public  class PatientDbContext: DbContext, IPatientDbContext
     {
         if (!dbContextOptionsBuilder.IsConfigured)
         {
-            dbContextOptionsBuilder.UseSqlServer(
-                _connectionString,
-                m => m.MigrationsAssembly(_migrationAssemblyName));
+            dbContextOptionsBuilder.UseSqlServer(_connectionString, m => m.MigrationsAssembly(_migrationAssemblyName));
         }
 
         base.OnConfiguring(dbContextOptionsBuilder);
