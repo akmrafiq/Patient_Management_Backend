@@ -16,7 +16,6 @@ public class PatientService: IPatientService
     public async Task<bool> Create(Patient patient)
     {
         await _patientUnitOfWork.PatientRepository.AddAsync(patient);
-        _patientUnitOfWork.Save();
         return true;
     }
 
