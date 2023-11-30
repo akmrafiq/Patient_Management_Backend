@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Patient_Management_System.Core.Entities;
 using Patient_Management_System.Core.Services;
 
 namespace Patient_Management_System.API.Controllers;
@@ -16,8 +17,14 @@ public class PatientController : ControllerBase
         _petService = petService;
     }
 
-    [HttpGet(Name = "GetPatient")]
-    public async Task<IActionResult> GetPatient()
+    [HttpPost(Name = "Create")]
+    public async Task<IActionResult> Create(Patient patient)
+    {
+        return Ok(await _petService.Create(patient));
+    }
+
+    [HttpGet(Name = "Get")]
+    public async Task<IActionResult> Get()
     {
         return Ok(await _petService.Get());
     }

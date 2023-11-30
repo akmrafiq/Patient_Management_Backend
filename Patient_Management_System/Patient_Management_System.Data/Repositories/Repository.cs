@@ -19,6 +19,7 @@ public abstract class Repository<TEntity, TKey, TContext> : IRepository<TEntity,
     public virtual async Task AddAsync(TEntity entity)
     {
         await _dbSet.AddAsync(entity);
+        await _dbContext.SaveChangesAsync();
     }
 
     public virtual async Task RemoveAsync(TKey id)

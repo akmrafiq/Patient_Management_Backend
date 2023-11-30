@@ -7,8 +7,8 @@ namespace Patient_Management_System.Core.UnitOfWork;
 
 public class PatientUnitOfWork: UnitOfWork<PatientDbContext>, IPatientUnitOfWork
 {
-    private IDoctorRepository DoctorRepository { get; set; }
-    private IPatientRepository PatientRepository { get; set; }
+    public IDoctorRepository DoctorRepository { get; set; }
+    public IPatientRepository PatientRepository { get; set; }
     public PatientUnitOfWork(string connectionString, string migrationAssemblyName,
         IDoctorRepository doctorRepository,
         IPatientRepository patientRepository

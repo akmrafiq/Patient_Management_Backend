@@ -9,7 +9,7 @@ public class UnitOfWork<T> : IUnitOfWork<T> where T : DbContext
     public UnitOfWork(string connectionString, string migrationAssemblyName)
         => _dbContext = (T)Activator.CreateInstance(typeof(T), connectionString, migrationAssemblyName);
 
-    public void Save() => _dbContext?.SaveChanges();
+    public void Save() => _dbContext.SaveChanges();
 
-    public void Dispose() => _dbContext?.Dispose();
+    public void Dispose() => _dbContext.Dispose();
 }
